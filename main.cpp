@@ -138,6 +138,16 @@ int main() {
             break;
         }
 
+        case 0:
+            cout << "Programa baigiama.\n";
+            break;
+
+        default:
+            cout << "Neteisingas pasirinkimas.\n";
+        }
+
+    } while (choice != 0);
+
     return 0;
 }
 
