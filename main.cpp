@@ -83,6 +83,60 @@ int main() {
             }
             cout << "\n";
             break;
+        }
+
+        case 4: { // Atnaujinti pažymį
+            cout << "Iveskite mokinio numeri: ";
+            int idx;
+            cin >> idx;
+            idx--;
+
+            if (idx < 0 || idx >= studentCount) {
+                cout << "Tokio mokinio nera.\n";
+                break;
+            }
+
+            cout << "Kuri pazymi norite pakeisti (1-" << gradeCount[idx] << ")? ";
+            int g;
+            cin >> g;
+            g--;
+
+            if (g < 0 || g >= gradeCount[idx]) {
+                cout << "Tokio pazymio nera.\n";
+                break;
+            }
+
+            cout << "Iveskite nauja pazymi: ";
+            cin >> grades[idx][g];
+
+            cout << "Pazymys atnaujintas.\n";
+            break;
+        }
+
+        case 5: { // Pašalinti mokinį
+            cout << "Iveskite pasalinamo mokinio numeri: ";
+            int idx;
+            cin >> idx;
+            idx--;
+
+            if (idx < 0 || idx >= studentCount) {
+                cout << "Tokio mokinio nera.\n";
+                break;
+            }
+
+            // Perkelti visus likusius studentus "aukštyn"
+            for (int i = idx; i < studentCount - 1; i++) {
+                names[i] = names[i + 1];
+                gradeCount[i] = gradeCount[i + 1];
+                for (int j = 0; j < MAX_GRADES; j++) {
+                    grades[i][j] = grades[i + 1][j];
+                }
+            }
+
+            studentCount--;
+            cout << "Mokinys pasalintas.\n";
+            break;
+        }
 
     return 0;
 }
