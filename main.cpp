@@ -54,5 +54,36 @@ int main() {
             break;
         }
 
+        case 2: { // Peržiūrėti visus mokinius
+            if (studentCount == 0) {
+                cout << "Sarasas tuscias.\n";
+                break;
+            }
+            cout << "\nMokiniu sarasas:\n";
+            for (int i = 0; i < studentCount; i++) {
+                cout << i + 1 << ". " << names[i] << " (" << gradeCount[i] << " pazymiai)\n";
+            }
+            break;
+        }
+
+        case 3: { // Peržiūrėti konkretų mokinį
+            cout << "Iveskite mokinio numeri: ";
+            int idx;
+            cin >> idx;
+            idx--;
+
+            if (idx < 0 || idx >= studentCount) {
+                cout << "Tokio mokinio nera.\n";
+                break;
+            }
+
+            cout << "Mokinys: " << names[idx] << "\nPazymiai: ";
+            for (int i = 0; i < gradeCount[idx]; i++) {
+                cout << grades[idx][i] << " ";
+            }
+            cout << "\n";
+            break;
+
     return 0;
 }
+
