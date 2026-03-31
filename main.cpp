@@ -14,5 +14,16 @@ int main() {
 
     int choice;
 
+    do {
+        cout << "\n===== Meniu =====\n";
+        cout << "1. Prideti mokini\n";
+        cout << "2. Perziureti visus mokinius\n";
+        cout << "3. Perziureti mokinio pazymius\n";
+        cout << "4. Atnaujinti mokinio pazymi\n";
+        cout << "5. Pasalinti mokini\n";
+        cout << "0. Iseiti\n";
+        cout << "Pasirinkite: ";
+        cin >> choice;
+
     return 0;
 }
