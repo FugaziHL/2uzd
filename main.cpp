@@ -25,5 +25,34 @@ int main() {
         cout << "Pasirinkite: ";
         cin >> choice;
 
+        switch (choice) {
+
+        case 1: { // Pridėti mokinį
+            if (studentCount >= MAX_STUDENTS) {
+                cout << "Maksimalus mokiniu skaicius pasiektas.\n";
+                break;
+            }
+            cout << "Iveskite mokinio varda: ";
+            cin >> names[studentCount];
+
+            cout << "Kiek pazymiu jis turi (0-10)? ";
+            int count;
+            cin >> count;
+
+            if (count < 0) count = 0;
+            if (count > MAX_GRADES) count = MAX_GRADES;
+
+            gradeCount[studentCount] = count;
+
+            for (int i = 0; i < count; i++) {
+                cout << "Iveskite pazymi #" << (i + 1) << ": ";
+                cin >> grades[studentCount][i];
+            }
+
+            studentCount++;
+            cout << "Mokinys pridetas.\n";
+            break;
+        }
+
     return 0;
 }
